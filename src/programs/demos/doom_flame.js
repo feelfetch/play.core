@@ -123,8 +123,3 @@ function valueNoise() {
 	    return mix(nx0, nx1, sy)
 	}
 }
-
-import { drawInfo } from '../../modules/drawbox.js'
-export function post(context, cursor, buffer) {
-	drawInfo(context, cursor, buffer)
-}
