@@ -5,15 +5,15 @@
 @desc   Oldschool flame effect
 */
 
-import { clamp, map } from '/src/modules/num.js'
-import { CSS4 } from '/src/modules/color.js'
-import { mix, smoothstep } from '/src/modules/num.js'
+import { clamp, map } from '../../modules/num.js'
+import { CSS4 } from '../../modules/color.js'
+import { mix, smoothstep } from '../../modules/num.js'
 
 export const settings = { fps : 30, backgroundColor : 'black', color : 'white' }
 
 const { min, max, sin, floor } = Math
 
-const flame = '...::/\\/\\/\\+=*abcdef01XYZ#'
+const flame = '...::/\\/\\/\\+=*WRDLSS#'
 let cols, rows
 
 const noise = valueNoise()
@@ -124,7 +124,7 @@ function valueNoise() {
 	}
 }
 
-import { drawInfo } from '/src/modules/drawbox.js'
+import { drawInfo } from '../../modules/drawbox.js'
 export function post(context, cursor, buffer) {
 	drawInfo(context, cursor, buffer)
 }
