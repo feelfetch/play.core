@@ -18,7 +18,7 @@ Playground manual, API and resources:
 To install this package:
 
 ```shell
-npm install https://github.com/ertdfgcvb/play.core
+npm install https://github.com/feelfetch/play.core
 ```
 
 To import and run one of the examples:
@@ -51,3 +51,43 @@ npm run build
 ```
 
 This will create a `run.min.js` file which you can include in your site.
+
+## Vue Component
+
+```javascript
+<template>
+  <pre></pre>
+</template>
+
+<script>
+import { run } from 'play.core/src/run.js'
+import * as program from 'play.core/src/programs/demos/doom_flame.js'
+
+export default {
+  mounted() {
+    this.setPlayCore()
+  },
+
+  methods: {
+    setPlayCore() {
+      const settings = {
+        fps: 60,
+        element: document.querySelector('pre')
+      }
+
+      run(program, settings).catch(function (e) {})
+    }
+  }
+}
+</script>
+
+<style scoped>
+pre {
+  position: absolute;
+  left: 0;
+  bottom: -50vh;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+```
