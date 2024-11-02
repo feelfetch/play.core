@@ -9,7 +9,7 @@ import { clamp, map } from '../../modules/num.js'
 import { CSS4 } from '../../modules/color.js'
 import { mix, smoothstep } from '../../modules/num.js'
 
-export const settings = { fps : 30, backgroundColor : 'black', color : 'white' }
+export const settings = { fps : 60, backgroundColor : 'white', color : 'black', fontSize : '12px' }
 
 const { min, max, sin, floor } = Math
 
@@ -36,7 +36,7 @@ export function pre(context, cursor, buffer) {
 		const t = context.time * 0.0015
 		const last = cols * (rows - 1)
 		for (let i=0; i<cols; i++) {
-			const val = floor(map(noise(i * 0.05, t), 0, 1, 5, 40))
+			const val = floor(map(noise(i * 0.15, t), 0, 1, 50, 40))
 			data[last + i] = min(val, data[last + i] + 2)
 		}
 	} else {
@@ -61,14 +61,14 @@ export function main(coord, context, cursor, buffer) {
 
 	return {
 		char : flame[clamp(u, 0, flame.length-1)],
-		fontWeight : u > 20 ? 700 : 100
+		fontWeight : u > 100 ? 100 : 100
 	}
 }
 
 // Random int betweem a and b, inclusive!
 function rndi(a, b=0) {
 	if (a > b) [a, b] = [b, a]
-	return Math.floor(a + Math.random() * (b - a + 1))
+	return Math.floor(a + Math.random() * (b - a + 2))
 }
 
 // Value noise:
